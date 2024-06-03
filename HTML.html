@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <form id="apiKeyForm">
+      <label for="apiKey">Hunter.io API Key:</label><br><br>
+      <input type="text" id="apiKey" name="apiKey"><br><br>
+      <input type="button" value="Save" onclick="saveApiKey()">
+    </form>
+    <script>
+      function saveApiKey() {
+        var apiKey = document.getElementById('apiKey').value;
+        google.script.run.withSuccessHandler(() => {
+          google.script.host.close();
+        }).saveApiKey(apiKey);
+      }
+    </script>
+  </body>
+</html>
